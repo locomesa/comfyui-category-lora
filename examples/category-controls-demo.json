@@ -1,0 +1,211 @@
+{
+  "id": "1e8b2e77-4aca-4c81-bd4d-c355ef041e6e",
+  "revision": 0,
+  "last_node_id": 3,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "LoraCategoryControls",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        404,
+        253
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "category_state",
+          "name": "category_state",
+          "type": "STRING",
+          "widget": {
+            "name": "category_state"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "category_settings",
+          "name": "category_settings",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": null
+        }
+      ],
+      "title": "Category Controls",
+      "properties": {
+        "Node name for S&R": "LoraCategoryControls"
+      },
+      "widgets_values": [
+        "{\"version\": 1, \"categories\": {\"Eyes\": true, \"Style\": true, \"Clothing\": true}}"
+      ],
+      "color": "#243b40",
+      "bgcolor": "#18262c"
+    },
+    {
+      "id": 1,
+      "type": "CategoryLoraLoader",
+      "pos": [
+        460,
+        100
+      ],
+      "size": [
+        470,
+        128
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "localized_name": "triggers",
+          "name": "triggers",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "LoRA stack A",
+      "properties": {
+        "Node name for S&R": "CategoryLoraLoader",
+        "loraLoaderState": "{\"version\": 1, \"loras\": [], \"sep\": \", \", \"step\": 0.05, \"defStrength\": 1, \"linkStrength\": true, \"civitai\": true, \"thumbs\": true, \"hideExt\": true, \"accent\": null}"
+      },
+      "widgets_values": [
+        {
+          "version": 1,
+          "loras": [],
+          "sep": ", ",
+          "step": 0.05,
+          "defStrength": 1,
+          "linkStrength": true,
+          "civitai": true,
+          "thumbs": true,
+          "hideExt": true,
+          "accent": null
+        }
+      ],
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 3,
+      "type": "CategoryLoraLoader",
+      "pos": [
+        460,
+        340
+      ],
+      "size": [
+        470,
+        128
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "localized_name": "triggers",
+          "name": "triggers",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "LoRA stack B",
+      "properties": {
+        "Node name for S&R": "CategoryLoraLoader",
+        "loraLoaderState": "{\"version\": 1, \"loras\": [], \"sep\": \", \", \"step\": 0.05, \"defStrength\": 1, \"linkStrength\": true, \"civitai\": true, \"thumbs\": true, \"hideExt\": true, \"accent\": null}"
+      },
+      "widgets_values": [
+        {
+          "version": 1,
+          "loras": [],
+          "sep": ", ",
+          "step": 0.05,
+          "defStrength": 1,
+          "linkStrength": true,
+          "civitai": true,
+          "thumbs": true,
+          "hideExt": true,
+          "accent": null
+        }
+      ],
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}
