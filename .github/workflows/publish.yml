@@ -1,0 +1,58 @@
+name: Release to GitHub and Comfy Registry
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing GitHub release tag (for example v0.1.1)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: category-lora-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      PYTHONUTF8: '1'
+      PYTHONIOENCODING: utf-8
+    steps:
+      - name: Check out the release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Install publishing tools
+        run: python -m pip install comfy-cli==1.23.0
+      - name: Check version matches the GitHub release tag
+        run: python .github/scripts/release.py check
+      - name: Validate node and run behavior tests
+        run: |
+          comfy node validate
+          python tests/test-policy.py
+          python tests/test-presets.py
+          node --experimental-vm-modules tests/test-presets-frontend.cjs
+      - name: Build registry and installer packages
+        run: |
+          comfy node pack
+          python .github/scripts/release.py build
+      - name: Attach matching GitHub release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release.py upload
+      - name: Publish matching Comfy Registry version
+        env:
+          REGISTRY_ACCESS_TOKEN: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
+        run: python .github/scripts/release.py publish
