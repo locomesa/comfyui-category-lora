@@ -1,9 +1,14 @@
-# Category LoRA v0.1.0
+# Category LoRA v0.1.1
 
-Initial release candidate: Pixaroma-style LoRA stacks with multiple category tags, one workflow-wide Category Controls node, and reusable per-LoRA presets.
+Documentation and distribution update; LoRA loading, category filtering, triggers, and preset behavior are unchanged.
 
-Requires ComfyUI-Pixaroma. Extract the release folder into ComfyUI/custom_nodes, restart ComfyUI, then refresh with Ctrl+F5. See README for details.
+- Added registry/Manager and CLI installation instructions, with scanning-status guidance and the required Pixaroma dependency.
+- Added a registry icon and banner.
+- Added version-matched GitHub release packaging and Comfy Registry publishing automation.
+- Added a repeatable release checklist.
 
-Includes a model-free configuration example. Tested on Windows with ComfyUI 0.31, frontend 1.48.7, Python 3.12.10 and Pixaroma 1.4.53. Other combinations are unverified.
+[Comfy Registry](https://registry.comfy.org/nodes/category-lora) · [README](https://github.com/locomesa/comfyui-category-lora#readme) · [Example workflow](https://github.com/locomesa/comfyui-category-lora/blob/v0.1.1/examples/category-controls-demo.json)
 
-Adapted Pixaroma interface code is distributed under MIT with its original notice retained. No models or personal presets are included.
+Install the attached installer ZIP manually, or use `comfy node install category-lora` when the registry version is available. Registry scanning can delay Manager availability. Requires [ComfyUI-Pixaroma](https://github.com/pixaroma/ComfyUI-Pixaroma).
+
+Tested runtime: Windows, ComfyUI 0.31, frontend 1.48.7, Python 3.12.10, Pixaroma 1.4.53. v0.1.1 does not expand that compatibility claim. This remains a prerelease.

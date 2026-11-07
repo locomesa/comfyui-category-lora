@@ -1,5 +1,9 @@
 # Category LoRA for ComfyUI
 
+![Category LoRA](assets/banner.svg)
+
+[Comfy Registry](https://registry.comfy.org/nodes/category-lora) · [GitHub releases](https://github.com/locomesa/comfyui-category-lora/releases) · [Example workflow](examples/category-controls-demo.json)
+
 A Pixaroma-style LoRA stack with workflow-wide category switches and reusable per-LoRA presets.
 
 ## Features
@@ -20,12 +24,28 @@ Tested locally with ComfyUI 0.31, frontend 1.48.7, Python 3.12.10 and Pixaroma 1
 
 ## Install
 
-1. Install ComfyUI-Pixaroma using its installation instructions.
-2. Download this project's release ZIP and extract the `comfyui-category-lora` folder into your ComfyUI `custom_nodes` folder. Ensure `__init__.py` is directly inside that folder; avoid an extra nested folder.
+Install [ComfyUI-Pixaroma](https://github.com/pixaroma/ComfyUI-Pixaroma) first, in the same ComfyUI instance. This custom-node dependency is not automatically installed by the package's Python dependency list.
+
+### Comfy Registry / Manager
+
+The registry package ID is **category-lora** and the publisher is **locomesa**: [registry listing](https://registry.comfy.org/nodes/category-lora).
+
+When a version has cleared registry scanning and is available to your Manager, search for **Category LoRA** and install it. With Comfy CLI, from the intended ComfyUI workspace:
+
+```sh
+comfy node install category-lora
+```
+
+New registry versions may remain pending while the registry scans them. A public listing or successful upload does not guarantee immediate Manager availability. If installation is not yet available, use the GitHub ZIP method below.
+
+### Manual ZIP
+
+1. Download the installer ZIP from [GitHub releases](https://github.com/locomesa/comfyui-category-lora/releases).
+2. Extract the `comfyui-category-lora` folder into your ComfyUI `custom_nodes` folder. Ensure `__init__.py` is directly inside that folder; avoid an extra nested folder.
 3. Restart ComfyUI and refresh the browser with Ctrl+F5.
 4. Find the two nodes under **Category LoRA**.
 
-For updates, replace this pack's code folder with the new release and restart. Presets are stored separately in the ComfyUI user directory. Keep only one installed copy of this pack.
+Keep only one installed copy. If changing from a manual installation to Manager, back up the old folder and move it outside `custom_nodes` before installing the registry copy. Presets live separately in the ComfyUI user directory; back them up before changing installations. The loader's runtime code is unchanged in v0.1.1.
 
 ## Use
 
@@ -80,3 +100,7 @@ These tests cover category filtering and preset behavior. They do not replace te
 ## Credits and license
 
 This is an independent extension, not an official Pixaroma release. Loader interface code is adapted from ComfyUI-Pixaroma 1.4.53 by Pixaroma, under MIT. Its original notice is preserved in `LICENSE-Pixaroma.txt`. This project's additions are also MIT licensed; see `LICENSE`. No model weights are distributed.
+
+## Releasing updates
+
+See [the release guide](docs/RELEASING.md). Each published GitHub release runs the release workflow: it checks the tag against `pyproject.toml`, runs validation and tests, creates the installer ZIP and checksum, attaches them to that GitHub release, and publishes the matching version to Comfy Registry. Registry approval remains a separate asynchronous step. Re-running the workflow skips a registry version already present rather than trying to overwrite it.

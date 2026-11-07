@@ -5,3 +5,7 @@ __pycache__/
 Thumbs.db
 presets.json
 presets.json.bak
+
+.ruff_cache/
+node.zip
+release-dist/

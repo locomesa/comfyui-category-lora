@@ -9,3 +9,7 @@ tests/
 presets.json
 presets.json.bak
 RELEASE_NOTES.md
+assets/
+docs/
+release-dist/
+.ruff_cache/
