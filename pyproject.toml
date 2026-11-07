@@ -1,0 +1,18 @@
+[project]
+name = "category-lora"
+version = "0.1.0"
+description = "Pixaroma-style LoRA stacks with workflow-wide category switches, trigger filtering, and reusable per-LoRA presets. Requires ComfyUI-Pixaroma."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/locomesa/comfyui-category-lora"
+Documentation = "https://github.com/locomesa/comfyui-category-lora#readme"
+Issues = "https://github.com/locomesa/comfyui-category-lora/issues"
+
+[tool.comfy]
+PublisherId = "locomesa"
+DisplayName = "Category LoRA"
+includes = ["web"]

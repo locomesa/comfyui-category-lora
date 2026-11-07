@@ -1,0 +1,11 @@
+# Development files stay on GitHub but do not ship to the registry.
+tests/
+.github/
+.git/
+**/__pycache__/
+*.pyc
+*.pyo
+*.zip
+presets.json
+presets.json.bak
+RELEASE_NOTES.md
